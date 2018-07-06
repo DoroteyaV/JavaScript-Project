@@ -27,10 +27,10 @@ for (i = 0; i < arrLen; i++){
 var arrMagics = [];
 
 $('.magic').on('click', function(e){
-    e.preventDefault();    
+    e.preventDefault();
     arrMagics.push( $(this).val() );
    // console.log(arrMagics); // just so you can see the content
-    
+    $(this).val('Can`t use it anymore').attr('disabled', 'disabled');
 });
 
 $('#check').on('click', function() {
@@ -40,10 +40,9 @@ $('#check').on('click', function() {
     	if (arrMagics[j] === arrMagics[j - 1]){
     		alert('Не се позволява съставките с едно и също действие да са непосредствено една след друга!')
     	} else {
-    		for (p = 1; p < arrMagics.length; p++) {
-    		var permute = p * (p+1);
-    		}
+    		var permute = arrMagics.length * (arrMagics.length - 1);
     		alert('Можеш да спасиш света за ' + permute + ' дни!')
     	}
     }
 });
+
