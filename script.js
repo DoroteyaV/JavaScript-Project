@@ -10,7 +10,7 @@ var arrIngredients = [  ['Крило от прилеп', 'A'],
 						['Опашка от скорпион', 'F']
 						],
 	arrLen = arrIngredients.length;
-var target = document.getElementById('wrapper'),
+var target = document.getElementById('container'),
 	btnEl, spanEl, i;
 
 for (i = 0; i < arrLen; i++){
@@ -36,9 +36,6 @@ $('.magic').on('click', function(e){
 
 $('#new_magic').on('click', function(e){
 	e.preventDefault();
-	if($(this).val != ''){
-            $('.magic').removeAttr('disabled');
-        }
 });
 
 $('#check').on('click', function(e) {
