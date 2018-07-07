@@ -25,24 +25,70 @@ for (i = 0; i < arrLen; i++){
 	target.appendChild(spanEl);
 }
 var arrMagics = [];
+var newArrMagics = [];
 
 $('.magic').on('click', function(e){
     e.preventDefault();
     arrMagics.push( $(this).val() );
-   // console.log(arrMagics); // just so you can see the content
+   // console.log(arrMagics); 
     $(this).val('Can`t use it anymore').attr('disabled', 'disabled');
 });
 
 $('#check').on('click', function() {
-    console.log(arrMagics.length); // < read the length of the amended array here
-    console.log(arrMagics); // just so you can see the content
+    //console.log(arrMagics.length); // < read the length of the amended array here
+    //console.log(arrMagics); //  see the content
     for (j = 0; j < arrMagics.length; j++){
     	if (arrMagics[j] === arrMagics[j - 1]){
     		alert('Не се позволява съставките с едно и също действие да са непосредствено една след друга!')
-    	} else {
-    		var permute = arrMagics.length * (arrMagics.length - 1);
-    		alert('Можеш да спасиш света за ' + permute + ' дни!')
     	}
+    	newArrMagics.push(arrMagics[j]);
+    	console.log(newArrMagics); //check the new filled array with magics 
     }
-});
+    var permArr = [],
+  		usedChars = [],
+  		arrPermutation;
 
+	function permute(input) {
+  		var k, ch;
+  		for (k = 0; k < input.length; k++) {
+    		ch = input.splice(k, 1)[0];
+    		usedChars.push(ch);
+    		if (input.length == 0) {
+      			permArr.push(usedChars.slice());
+    		}
+    		permute(input);
+    		input.splice(k, 0, ch);
+    		usedChars.pop();
+  		}
+  		return permArr;
+	}
+	arrPermutation = permute(newArrMagics);
+	//console.log(arrPermutation) 
+	arrPermutationLen = arrPermutation.length; //how long you can save the world :)
+	//console.log(arrPermutationLen);
+    alert('Можеш да спасиш света за  ' + arrPermutationLen + ' дни!') 
+});
+// $('#save_the_world').on('click', function(){
+// 	var permArr = [],
+//   		usedChars = [],
+//   		arrPermutation;
+
+// 	function permute(input) {
+//   		var k, ch;
+//   		for (k = 0; k < input.length; k++) {
+//     		ch = input.splice(k, 1)[0];
+//     		usedChars.push(ch);
+//     		if (input.length == 0) {
+//       			permArr.push(usedChars.slice());
+//     		}
+//     		permute(input);
+//     		input.splice(k, 0, ch);
+//     		usedChars.pop();
+//   		}
+//   		return permArr;
+// 	}
+// 	arrPermutation = permute(newArrMagics);
+// 	console.log(arrPermutation) 
+// 	arrPermutationLen = arrPermutation.length;
+// 	console.log(arrPermutationLen);
+// });
