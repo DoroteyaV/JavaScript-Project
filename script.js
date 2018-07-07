@@ -34,7 +34,15 @@ $('.magic').on('click', function(e){
     $(this).val('Can`t use it anymore').attr('disabled', 'disabled');
 });
 
-$('#check').on('click', function() {
+$('#new_magic').on('click', function(e){
+	e.preventDefault();
+	if($(this).val != ''){
+            $('.magic').removeAttr('disabled');
+        }
+});
+
+$('#check').on('click', function(e) {
+	e.preventDefault();
     //console.log(arrMagics.length); // < read the length of the amended array here
     //console.log(arrMagics); //  see the content
     for (j = 0; j < arrMagics.length; j++){
@@ -66,8 +74,21 @@ $('#check').on('click', function() {
 	//console.log(arrPermutation) 
 	arrPermutationLen = arrPermutation.length; //how long you can save the world :)
 	//console.log(arrPermutationLen);
-    alert('Можеш да спасиш света за  ' + arrPermutationLen + ' дни!') 
+    alert('Можеш да спасиш света за  ' + arrPermutationLen + ' дни!');
+//**** unique array *** don`t compare
+    function unique (newArrMagics){
+    	var p, len = newArrMagics.length, out = [], object = {};
+    	for (p = 0; p < len; p++){
+    		object[newArrMagics[p]] = 0;
+    	}
+    	for (p in object){
+    		out.push(p);
+    	}
+    	return out;
+    }
+    console.log(unique(newArrMagics)); 
 });
+//*****Another button for calculating the days of saving the world*******
 // $('#save_the_world').on('click', function(){
 // 	var permArr = [],
 //   		usedChars = [],
