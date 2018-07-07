@@ -5,7 +5,7 @@ body, div, span, button{
 body{
 	background-color: #CE0000;
 	background-image: url(img/magician2.jpg);
-	background-repeat: no-repeat;
+	background-repeat: no-repeat;	
 }
 #wrapper {
 	background-color: 
@@ -23,9 +23,13 @@ body{
 span{
 	float: right;
 }
+.btns{
+	margin-top: 30px;
+	margin-left: 77%;
+}
 #check {
-	float: right;
+	
 }
 #new_magic{
-	float: right;
+	
 }
