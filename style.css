@@ -46,9 +46,11 @@ span{
 }
 .btns{
 	margin-top: 30px;
-	margin-left: 75%;
+	margin-left: 74%;
 }
 #check {
+	letter-spacing: 1px;
+	padding: 3px;
 	font-size: 20px;
 	border-radius: 10px;
 	border-color: #121210;
@@ -56,6 +58,8 @@ span{
 	color: #121210;
 }
 #new_magic{
+	letter-spacing: 1px;
+	padding: 3px;
 	font-size: 20px;
 	border-radius: 10px;
 	border-color: #C60000;
