@@ -7,7 +7,7 @@ var arrIngredients = [  ['Крило от прилеп', 'A'],
 						['Бразилски скитащ паяк', 'D'],
 						['Черна вдовица', 'E'],
 						['Око от октопод', 'D'],
-						['Опашка от скорпион', 'F']
+						['Опашка от скорпион', 'E']
 						],
 	arrLen = arrIngredients.length;
 var target = document.getElementById('container'),
@@ -26,16 +26,20 @@ for (i = 0; i < arrLen; i++){
 }
 var arrMagics = [];
 var newArrMagics = [];
+//var arr = [];
 
 $('.magic').on('click', function(e){
     e.preventDefault();
     arrMagics.push( $(this).val() );
    // console.log(arrMagics); 
     $(this).val('Can`t use it anymore').attr('disabled', 'disabled');
+    $(this).css("background-color", "#888B78");
 });
 
-$('#new_magic').on('click', function(e){
-	e.preventDefault();
+$('#new_magic').on('reset', function(){
+	('.magic').trigger('change');
+	//A.splice(0,A.length)
+	//arr.splice(0, arr.length);
 });
 
 $('#check').on('click', function(e) {
@@ -72,7 +76,7 @@ $('#check').on('click', function(e) {
 	arrPermutationLen = arrPermutation.length; //how long you can save the world :)
 	//console.log(arrPermutationLen);
     alert('Можеш да спасиш света за  ' + arrPermutationLen + ' дни!');
-//**** unique array *** don`t compare
+//**** unique array *** doesn`t compare
     function unique (newArrMagics){
     	var p, len = newArrMagics.length, out = [], object = {};
     	for (p = 0; p < len; p++){
